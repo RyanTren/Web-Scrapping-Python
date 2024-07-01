@@ -1,3 +1,4 @@
+import os
 import requests
 from bs4 import BeautifulSoup
 import json
@@ -36,11 +37,17 @@ def scrape_app_store(app_url):
                 'Reviews': reviews
             }
 
-            # Save data to a JSON file
-            with open('app_data.json', 'w', encoding='utf-8') as json_file:
+            # Specify the directory path for saving the JSON file
+            directory = 'info'
+            if not os.path.exists(directory):
+                os.makedirs(directory)
+
+            # Save data to a JSON file inside the 'info' folder
+            file_path = os.path.join(directory, 'app_data.json')
+            with open(file_path, 'w', encoding='utf-8') as json_file:
                 json.dump(app_data, json_file, ensure_ascii=False, indent=4)
 
-            print('Data saved successfully to app_data.json.')
+            print(f'Data saved successfully to {file_path}.')
 
         else:
             print(f'Failed to fetch webpage. Status code: {response.status_code}')
