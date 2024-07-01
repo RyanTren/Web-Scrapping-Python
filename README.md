@@ -22,6 +22,6 @@ Understanding Python and its external librarys are important for gathering imfor
 [Another one](https://www.youtube.com/watch?v=8dTpNajxaH0)
 
 ### Set-up for Script
-- 1) WIP
+  1) WIP
   2) WIP
   3) WIP 
