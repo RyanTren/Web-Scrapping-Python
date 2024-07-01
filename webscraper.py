@@ -57,7 +57,7 @@ def scrape_app_store(app_url):
 
 # Example usage
 if __name__ == '__main__':
-    print("Ryan's Web Scrapper V1.0\n")
+    print("Ryan's iOS Store Web Scrapper V1.0\n")
     app_url = input('Enter the link to the app store page: ')
     
     scrape_app_store(app_url)
