@@ -1,9 +1,9 @@
 import requests
 from bs4 import BeautifulSoup
-import csv
+import json
 
-def scrape_mental_health_apps():
-    url = 'https://example.com'  # Replace with actual URL of the app page
+def scrape_website(url):
+    # Fetch the webpage
     response = requests.get(url)
     
     if response.status_code == 200:
@@ -11,28 +11,31 @@ def scrape_mental_health_apps():
         soup = BeautifulSoup(html, 'html.parser')
         
         # Example: Scraping app names and ratings
-        app_names = []
-        app_ratings = []
+        app_data = []
         
         # Replace with actual HTML structure and tags to find app names and ratings
         app_name_tags = soup.find_all('h2', class_='app-name')
-        for tag in app_name_tags:
-            app_names.append(tag.text.strip())
-        
         app_rating_tags = soup.find_all('div', class_='app-rating')
-        for tag in app_rating_tags:
-            app_ratings.append(tag.text.strip())
         
-        # Store data in CSV
-        with open('mental_health_apps.csv', 'w', newline='') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(['App Name', 'Rating'])
-            for i in range(len(app_names)):
-                writer.writerow([app_names[i], app_ratings[i]])
+        for name_tag, rating_tag in zip(app_name_tags, app_rating_tags):
+            app_name = name_tag.text.strip()
+            app_rating = rating_tag.text.strip()
+            app_data.append({
+                'App Name': app_name,
+                'Rating': app_rating
+            })
         
-        print('Data scraped and saved successfully.')
+        # Store data in JSON
+        json_filename = 'mental_health_apps.json'
+        with open(json_filename, 'w') as jsonfile:
+            json.dump(app_data, jsonfile, indent=4)
+        
+        print(f'Data scraped and saved successfully to {json_filename}')
     else:
         print('Failed to retrieve the webpage')
 
+# Prompt the user for a website URL
+url = input('Enter the URL of the website to scrape: ')
+
 # Call the function to start scraping
-scrape_mental_health_apps()
+scrape_website(url)
