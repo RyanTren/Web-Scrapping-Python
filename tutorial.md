@@ -7,6 +7,9 @@ Web scraping in Python involves extracting data from websites. Here's a basic ou
 2) Install Libraries: If you haven't already installed these libraries, you can do so using pip:
 ```
 pip install beautifulsoup4 requests
+
+pip install requests --upgrade
+
 ```
 3) Fetch the Web Page: Use the requests library to fetch the HTML content of the webpage you want to scrape.
 ```
