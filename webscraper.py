@@ -5,7 +5,7 @@ import json
 
 def scrape_app_store(app_url):
     try:
-        # Fetch webpage content
+        # Fetches webpage content
         response = requests.get(app_url)
         if response.status_code == 200:
             html = response.text
@@ -55,7 +55,6 @@ def scrape_app_store(app_url):
     except Exception as e:
         print(f'An error occurred: {str(e)}')
 
-# Example usage
 if __name__ == '__main__':
     print("Ryan's iOS Store Web Scrapper V1.0\n")
     app_url = input('Enter the link to the app store page: ')
