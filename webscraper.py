@@ -2,6 +2,7 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import json
+from datetime import datetime
 
 def scrape_app_store(app_url):
     try:
@@ -42,8 +43,12 @@ def scrape_app_store(app_url):
             if not os.path.exists(directory):
                 os.makedirs(directory)
 
+            # Generate a unique filename with timestamp
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            filename = f'app_data_{timestamp}.json'
+            file_path = os.path.join(directory, filename)
+
             # Save data to a JSON file inside the 'info' folder
-            file_path = os.path.join(directory, 'app_data.json')
             with open(file_path, 'w', encoding='utf-8') as json_file:
                 json.dump(app_data, json_file, ensure_ascii=False, indent=4)
 
