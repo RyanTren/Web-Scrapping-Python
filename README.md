@@ -24,3 +24,7 @@ Understanding Python and its external librarys are important for gathering imfor
 ### Set-up for Script
 
 - [Link](https://github.com/RyanTren/Web-Scrapping-Python/blob/main/tutorial.md)
+
+### Document
+
+- [Link](https://kennesawedu-my.sharepoint.com/:w:/r/personal/rtran13_students_kennesaw_edu/Documents/Data%20Collection%20for%20KSU%20Research%20July%202024.docx?d=w6907014f5942436b8607e5e431ae10a9&csf=1&web=1&e=nvXXO3)
